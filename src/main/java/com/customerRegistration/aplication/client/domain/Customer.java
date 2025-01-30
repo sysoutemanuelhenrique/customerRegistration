@@ -17,12 +17,14 @@ import java.util.UUID;
 @Getter
 @Builder
 @Document( collection = "Customer")
+@ToString
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotBlank
     private UUID idCustomer;
+    private FullName name;
     @CPF
     @NotBlank
     private String cpf;
