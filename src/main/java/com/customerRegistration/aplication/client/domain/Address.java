@@ -27,10 +27,22 @@ public class Address {
         @NotBlank
         private String city;
         @NotBlank
-        private String State;
+        private String state;
+
+
 
         @ManyToOne
         @JoinColumn(name = "customer_id", nullable = false)
-        private Customer IdCustomer;
+        private Customer idCustomer;
+
+        public Address(UUID idAddress, TypeAddress typeAdress, String street, Integer number, String city, String state, Customer idCustomer) {
+                IdAddress = idAddress;
+                this.typeAdress = typeAdress;
+                this.street = street;
+                this.number = number;
+                this.city = city;
+                this.state = state;
+                this.idCustomer = idCustomer;
+        }
 
 }
