@@ -1,1 +1,15 @@
-spring.application.name=aplication
+server:
+  servlet:
+    context-path: /customerRegistration/api
+
+#spring:
+#  data:
+#    mongodb:
+#      authentication-database: admin
+#      uri: ${MONGO_DB_URI:mongodb+srv://joao:joao@cluster0.phxei02.mongodb.net/Cluster0?retryWrites=true&w=majority}
+#      auto-index-creation: true
+
+springdoc:
+  swagger-ui:
+    path: /public/swagger
+
