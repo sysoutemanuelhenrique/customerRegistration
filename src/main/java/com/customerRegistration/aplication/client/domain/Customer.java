@@ -41,11 +41,11 @@ public class Customer {
 
 
     public Customer(UUID idCustomer, String cpf, Gender gender, List<Address> address, TypeCustomer typeCustomer, String email, LocalDate dateRegistration) {
-       this.idCustomer = idCustomer;
+       this.idCustomer = idCustomer = UUID.randomUUID();
         this.cpf = cpf;
         this.gender = gender;
         this.address = address;
-        this.typeCustomer = typeCustomer;
+        this.typeCustomer = typeCustomer = TypeCustomer.PLUS;
         this.email = email;
         DateRegistration = dateRegistration = LocalDate.now();
     }
