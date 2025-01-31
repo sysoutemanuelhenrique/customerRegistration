@@ -1,6 +1,7 @@
 package com.customerRegistration.aplication.client.domain;
 
 
+import com.customerRegistration.aplication.client.api.CustomerRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,6 +10,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,14 +42,12 @@ public class Customer {
     private LocalDate DateRegistration;
 
 
-    public Customer(UUID idCustomer, String cpf, Gender gender, List<Address> address, TypeCustomer typeCustomer, String email, LocalDate dateRegistration) {
-       this.idCustomer = idCustomer = UUID.randomUUID();
-        this.cpf = cpf;
-        this.gender = gender;
-        this.address = address;
-        this.typeCustomer = typeCustomer = TypeCustomer.PLUS;
-        this.email = email;
-        DateRegistration = dateRegistration = LocalDate.now();
-    }
+    public Customer(CustomerRequest newCostumeRequest) {
 
+        this.cpf = newCostumeRequest.getCpf();
+        this.gender = newCostumeRequest.getGender();
+        this.address = new ArrayList<>();
+        this.email = newCostumeRequest.getEmail();
+
+    }
 }

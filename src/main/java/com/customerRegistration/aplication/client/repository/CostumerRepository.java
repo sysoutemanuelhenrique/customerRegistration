@@ -1,0 +1,10 @@
+package com.customerRegistration.aplication.client.repository;
+
+import com.customerRegistration.aplication.client.api.CustomerRequest;
+import com.customerRegistration.aplication.client.domain.Customer;
+import org.springframework.stereotype.Repository;
+
+
+public interface CostumerRepository {
+    Customer save(Customer customer);
+}

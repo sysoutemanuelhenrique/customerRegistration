@@ -10,6 +10,6 @@ public interface CustomerApi {
 
     @PostMapping
     @ResponseStatus (code = HttpStatus.CREATED)
-    CreatNewCostumerResponse creatNewCostumerResponse(@RequestBody @Valid CreatNewCostumeRequest newCostumeRequest);
+    CustomerResponse creatNewCostumerResponse(@RequestBody @Valid CustomerRequest newCostumeRequest);
 
 }

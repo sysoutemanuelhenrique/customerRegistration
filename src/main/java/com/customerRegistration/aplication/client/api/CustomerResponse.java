@@ -6,12 +6,15 @@ import lombok.Value;
 import java.util.UUID;
 
 @Value
-public class CreatNewCostumerResponse {
+public class CustomerResponse {
 
     private  UUID idCustomer;
     private  String email;
 
 
+    public CustomerResponse(Customer customerCreat) {
 
-
+        this.idCustomer = customerCreat.getIdCustomer();
+        this.email =  customerCreat.getEmail();
+    }
 }
