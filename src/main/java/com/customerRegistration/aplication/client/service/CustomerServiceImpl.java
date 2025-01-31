@@ -17,11 +17,13 @@ public class CustomerServiceImpl implements CustomerService {
     private final CostumerRepository customerRepository;
 
     @Override
-    public CustomerResponse creat(CustomerRequest newCostumeRequest) {
+    public CustomerResponse creat(CustomerRequest customerRequest) {
 
 
-        Customer customerCreat = customerRepository.save(new Customer(newCostumeRequest));
 
-        return new CustomerResponse(customerCreat);
+        log.info("[Star] - CustomerRepository - creatCustomer");
+        Customer newCustomer = customerRepository.save(new Customer(customerRequest));
+        log.info("[Finish] - CustomerRepository - creatCustomer");
+        return new CustomerResponse(newCustomer);
     }
 }
