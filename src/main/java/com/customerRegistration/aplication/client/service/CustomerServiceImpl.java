@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Log4j2
 @RequiredArgsConstructor
@@ -25,5 +27,13 @@ public class CustomerServiceImpl implements CustomerService {
         Customer newCustomer = customerRepository.save(new Customer(customerRequest));
         log.info("[Finish] - CustomerRepository - creatCustomer");
         return new CustomerResponse(newCustomer);
+    }
+
+    @Override
+    public List<Customer> getAllCustomers() {
+        log.info("[Star] - CustomerRepository - findAll");
+        List<Customer> listCustomers = customerRepository.findAllCustomers();
+        log.info("[Finish] - CustomerRepository - findAll");
+        return listCustomers;
     }
 }

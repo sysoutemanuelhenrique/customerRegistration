@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 @Log4j2
@@ -15,14 +17,17 @@ public class CostumerMongoRepositoryIml implements CostumerRepository {
 
     @Override
     public Customer save(Customer customer) {
-
-
         log.info("[Start] CustomerInfraRepository - saveNewCustomerRegistration");
-
         Customer customerCreated =  customerMongoSpringRepsitory.save(customer);
-
         log.info("[Start] CustomerInfraRepository - saveNewCustomerRegistration");
-
         return customerCreated;
+    }
+
+    @Override
+    public List<Customer> findAllCustomers() {
+        log.info("[Start] CustomerInfraRepository - findAllCustomers");
+        List<Customer>  custerList =  customerMongoSpringRepsitory.findAll();
+        log.info("[Start] CustomerInfraRepository - findAllCustomers");
+        return  custerList;
     }
 }
