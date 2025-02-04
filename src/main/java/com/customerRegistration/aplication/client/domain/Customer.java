@@ -24,7 +24,6 @@ import java.util.UUID;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, unique = true, nullable = false)
     @NotBlank
     private UUID idCustomer;
@@ -48,6 +47,7 @@ public class Customer {
 
     public Customer(CustomerRequest newCostumeRequest) {
 
+        this.idCustomer = UUID.randomUUID();
         this.cpf = newCostumeRequest.getCpf();
         this.gender = newCostumeRequest.getGender();
         this.address = new ArrayList<>();

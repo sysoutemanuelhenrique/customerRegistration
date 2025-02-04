@@ -12,9 +12,9 @@ public class CustomerResponse {
     private  String email;
 
 
-    public CustomerResponse(Customer customerCreat) {
+    public CustomerResponse(Customer customerRegistration) {
 
-        this.idCustomer = customerCreat.getIdCustomer();
-        this.email =  customerCreat.getEmail();
+        this.idCustomer = customerRegistration.getIdCustomer();
+        this.email =  customerRegistration.getEmail();
     }
 }
