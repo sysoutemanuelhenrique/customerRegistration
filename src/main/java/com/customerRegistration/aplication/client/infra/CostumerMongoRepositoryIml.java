@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -29,5 +30,12 @@ public class CostumerMongoRepositoryIml implements CostumerRepository {
         List<Customer>  custerList =  customerMongoSpringRepsitory.findAll();
         log.info("[Start] CustomerInfraRepository - findAllCustomers");
         return  custerList;
+    }
+
+    @Override
+    public void deleteByIdCostumer(UUID idCustomer) {
+        log.info("[Start] CustomerInfraRepository - deletedByIdCostumer");
+        customerMongoSpringRepsitory.deleteById(idCustomer);
+        log.info("[Start] CustomerInfraRepository - deletedByIdCostumer");
     }
 }

@@ -24,9 +24,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 
 
-        log.info("[Star] - CustomerRepository - creatCustomer");
+        log.info("[Star] - CustomerRepository - createdCustomer");
         Customer newCustomer = customerRepository.save(new Customer(customerRequest));
-        log.info("[Finish] - CustomerRepository - creatCustomer");
+        log.info("[Finish] - CustomerRepository - createdCustomer");
         return new CustomerResponse(newCustomer);
     }
 
@@ -40,6 +40,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void deleteCustomerById(UUID idCustomer) {
+        log.info("[Star] - CustomerRepository - deleteCustomerById");
+        customerRepository.deleteByIdCostumer(idCustomer);
+        log.info("[Star] - CustomerRepository - deleteCustomerById");
 
     }
 }

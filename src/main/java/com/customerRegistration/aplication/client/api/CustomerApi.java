@@ -21,8 +21,8 @@ public interface CustomerApi {
     @ResponseStatus (code = HttpStatus.OK)
     public List<CustomerFindAllResponse> getAllCustomers();
 
-    @DeleteMapping("/DeleteById")
-    @ResponseStatus (code = HttpStatus.OK)
+    @DeleteMapping("/{idCustomer}")
+    @ResponseStatus (code = HttpStatus.NO_CONTENT)
     void deleteByIdCustomer(@RequestBody @PathVariable UUID idCustomer);
 
 
