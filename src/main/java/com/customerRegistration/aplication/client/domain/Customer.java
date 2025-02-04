@@ -46,7 +46,7 @@ public class Customer {
 
 
     public Customer(CustomerRequest newCostumeRequest) {
-
+        this.name = newCostumeRequest.getName();
         this.idCustomer = UUID.randomUUID();
         this.cpf = newCostumeRequest.getCpf();
         this.gender = newCostumeRequest.getGender();

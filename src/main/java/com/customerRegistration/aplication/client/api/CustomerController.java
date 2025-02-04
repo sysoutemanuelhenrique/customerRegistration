@@ -10,6 +10,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Getter
@@ -24,9 +25,7 @@ public class CustomerController implements CustomerApi {
 
     @Override
 
-    public CustomerResponse creatNewCostumerResponse(CustomerRequest newCostumeRequest) {
-
-
+    public CustomerResponse createdNewCostumerResponse(CustomerRequest newCostumeRequest) {
       log.info("[Star] - CustomerController - creatNewCostumerResponse");
         CustomerResponse newCustomer = applicationService.creat(newCostumeRequest);
       log.info("[Finish] - CustomerController - creatNewCostumerResponse");
@@ -39,6 +38,15 @@ public class CustomerController implements CustomerApi {
         List<Customer> getAllCustomers = applicationService.getAllCustomers();
         log.info("[Finish] - CustomerController - creatNewCostumerResponse");
         return CustomerFindAllResponse.parseToList(getAllCustomers);
+    }
+
+    @Override
+    public void deleteByIdCustomer(UUID idCustomer) {
+        log.info("[Star] - CustomerController - createdNewCustomerResponse");
+
+        log.info("[Finish] - CustomerController - createdNewCustomerResponse");
+
+
     }
 
 
