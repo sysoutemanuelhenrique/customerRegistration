@@ -34,17 +34,18 @@ public class CustomerController implements CustomerApi {
 
     @Override
     public List<CustomerFindAllResponse> getAllCustomers() {
-        log.info("[Star] - CustomerController - creatNewCostumerResponse");
+        log.info("[Star] - CustomerController - createdNewCostumerResponse");
         List<Customer> getAllCustomers = applicationService.getAllCustomers();
-        log.info("[Finish] - CustomerController - creatNewCostumerResponse");
+        log.info("[Finish] - CustomerController - createdNewCostumerResponse");
         return CustomerFindAllResponse.parseToList(getAllCustomers);
     }
 
     @Override
     public void deleteByIdCustomer(UUID idCustomer) {
-        log.info("[Star] - CustomerController - createdNewCustomerResponse");
-
-        log.info("[Finish] - CustomerController - createdNewCustomerResponse");
+        log.info("[Star] - CustomerController - deleteByIdCustomer");
+        log.info("{idCustomer}{}", idCustomer);
+        applicationService.deleteCustomerById(idCustomer);
+        log.info("[Finish] - CustomerController - deleteByIdCustomer");
 
 
     }

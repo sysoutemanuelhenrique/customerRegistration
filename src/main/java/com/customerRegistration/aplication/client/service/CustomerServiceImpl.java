@@ -9,6 +9,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -35,5 +36,10 @@ public class CustomerServiceImpl implements CustomerService {
         List<Customer> listCustomers = customerRepository.findAllCustomers();
         log.info("[Finish] - CustomerRepository - findAll");
         return listCustomers;
+    }
+
+    @Override
+    public void deleteCustomerById(UUID idCustomer) {
+
     }
 }
