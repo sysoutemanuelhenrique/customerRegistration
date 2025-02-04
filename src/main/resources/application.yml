@@ -5,10 +5,10 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://emanuel2017henrique:vJ4dIs3tnjxR8LMH@customerregistrationdat.f6gqk.mongodb.net/nomeDoBanco?retryWrites=true&w=majority
+      uri: mongodb+srv://emanuel2017henrique:manu1097@customerregistrationdat.f6gqk.mongodb.net/customerRegistrationDataBase?retryWrites=true&w=majority
 
 
 springdoc:
   swagger-ui:
-    path: /public/swagger
+    path: /swagger-ui.html
 

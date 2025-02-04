@@ -3,6 +3,7 @@ package com.customerRegistration.aplication.client.domain;
 
 import com.customerRegistration.aplication.client.api.CustomerRequest;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -24,8 +25,11 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, unique = true, nullable = false)
     @NotBlank
     private UUID idCustomer;
+
+    @Valid
     private FullName name;
     @CPF
     @NotBlank
