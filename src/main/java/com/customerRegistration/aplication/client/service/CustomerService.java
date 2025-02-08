@@ -1,5 +1,6 @@
 package com.customerRegistration.aplication.client.service;
 
+import com.customerRegistration.aplication.client.api.CustomerDetailResponse;
 import com.customerRegistration.aplication.client.api.CustomerRequest;
 import com.customerRegistration.aplication.client.api.CustomerResponse;
 import com.customerRegistration.aplication.client.domain.Customer;
@@ -15,5 +16,9 @@ public interface CustomerService {
     List<Customer> getAllCustomers();
 
     void deleteCustomerById(UUID idCustomer);
+
+    CustomerDetailResponse findByIdCustomer(UUID idCustomer);
+
+
 
 }

@@ -33,11 +33,11 @@ public class CustomerController implements CustomerApi {
     }
 
     @Override
-    public List<CustomerFindAllResponse> getAllCustomers() {
+    public List<CustomerDetailResponse> getAllCustomers() {
         log.info("[Star] - CustomerController - createdNewCostumerResponse");
         List<Customer> getAllCustomers = applicationService.getAllCustomers();
         log.info("[Finish] - CustomerController - createdNewCostumerResponse");
-        return CustomerFindAllResponse.parseToList(getAllCustomers);
+        return CustomerDetailResponse.parseToList(getAllCustomers);
     }
 
     @Override
@@ -47,6 +47,15 @@ public class CustomerController implements CustomerApi {
         applicationService.deleteCustomerById(idCustomer);
         log.info("[Finish] - CustomerController - deleteByIdCustomer");
 
+
+    }
+
+    @Override
+    public CustomerDetailResponse findCustomerById(UUID idCustomer) {
+        log.info("[Star] - CustomerController - findCustomerById");
+        CustomerDetailResponse customerById = applicationService.findByIdCustomer(idCustomer);
+        log.info("[Finish] - CustomerController - findCustomerById");
+        return customerById;
 
     }
 

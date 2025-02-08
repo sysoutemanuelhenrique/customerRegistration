@@ -19,11 +19,15 @@ public interface CustomerApi {
 
     @GetMapping ("/listAll")
     @ResponseStatus (code = HttpStatus.OK)
-    public List<CustomerFindAllResponse> getAllCustomers();
+    public List<CustomerDetailResponse> getAllCustomers();
 
     @DeleteMapping("/{idCustomer}")
     @ResponseStatus (code = HttpStatus.NO_CONTENT)
     void deleteByIdCustomer(@RequestBody @PathVariable UUID idCustomer);
+
+    @GetMapping ("/{idCustomer}")
+    @ResponseStatus(code = HttpStatus.OK)
+    CustomerDetailResponse findCustomerById(@PathVariable UUID idCustomer) ;
 
 
 }

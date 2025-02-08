@@ -1,5 +1,6 @@
 package com.customerRegistration.aplication.client.service;
 
+import com.customerRegistration.aplication.client.api.CustomerDetailResponse;
 import com.customerRegistration.aplication.client.api.CustomerRequest;
 import com.customerRegistration.aplication.client.api.CustomerResponse;
 import com.customerRegistration.aplication.client.domain.Customer;
@@ -41,8 +42,19 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void deleteCustomerById(UUID idCustomer) {
         log.info("[Star] - CustomerRepository - deleteCustomerById");
-        customerRepository.deleteByIdCostumer(idCustomer);
-        log.info("[Star] - CustomerRepository - deleteCustomerById");
+        log.info("[idCustomer] {}", idCustomer);
+        Customer customer = customerRepository.findByIdCustomer(idCustomer);
+        customerRepository.deleteByIdCostumer(customer.getIdCustomer());
+        log.info("[Finish] - CustomerRepository - deleteCustomerById");
 
+    }
+
+    @Override
+    public CustomerDetailResponse findByIdCustomer(UUID idCustomer) {
+        log.info("[Star] - CustomerRepository - findByIdCustomer");
+        log.info("[idCustomer] {}", idCustomer);
+        Customer customer = customerRepository.findByIdCustomer(idCustomer);
+        log.info("[Finish] - CustomerRepository - findByIdCustomer");
+        return new CustomerDetailResponse(customer);
     }
 }

@@ -15,4 +15,5 @@ public interface CostumerRepository {
 
     void deleteByIdCostumer(UUID idCustomer);
 
+    Customer findByIdCustomer(UUID idCustomer);
 }

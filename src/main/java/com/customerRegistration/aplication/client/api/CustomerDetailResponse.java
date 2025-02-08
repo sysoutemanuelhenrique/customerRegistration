@@ -9,7 +9,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Value
-public class CustomerFindAllResponse {
+public class CustomerDetailResponse {
 
 
     private UUID idCustomer;
@@ -18,14 +18,14 @@ public class CustomerFindAllResponse {
     private  String email;
 
 
-    public static List<CustomerFindAllResponse> parseToList(List<Customer> getAllCustomers) {
+    public static List<CustomerDetailResponse> parseToList(List<Customer> getAllCustomers) {
     return getAllCustomers.stream()
-            .map(CustomerFindAllResponse::new)
+            .map(CustomerDetailResponse::new)
             .collect((Collectors.toList()));
 
     }
 
-    public CustomerFindAllResponse(Customer customer) {
+    public CustomerDetailResponse(Customer customer) {
         this.idCustomer = customer.getIdCustomer();
         this.name = customer.getName();
         this.cpf = customer.getCpf();

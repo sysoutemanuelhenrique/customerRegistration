@@ -38,4 +38,10 @@ public class CostumerMongoRepositoryIml implements CostumerRepository {
         customerMongoSpringRepsitory.deleteById(idCustomer);
         log.info("[Start] CustomerInfraRepository - deletedByIdCostumer");
     }
+
+    @Override
+    public Customer findByIdCustomer(UUID idCustomer) {
+
+        return null;
+    }
 }
