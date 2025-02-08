@@ -20,28 +20,30 @@ public class CostumerMongoRepositoryIml implements CostumerRepository {
     public Customer save(Customer customer) {
         log.info("[Start] CustomerInfraRepository - saveNewCustomerRegistration");
         Customer customerCreated =  customerMongoSpringRepsitory.save(customer);
-        log.info("[Start] CustomerInfraRepository - saveNewCustomerRegistration");
+        log.info("[Finish] CustomerInfraRepository - saveNewCustomerRegistration");
         return customerCreated;
     }
 
     @Override
     public List<Customer> findAllCustomers() {
         log.info("[Start] CustomerInfraRepository - findAllCustomers");
-        List<Customer>  custerList =  customerMongoSpringRepsitory.findAll();
-        log.info("[Start] CustomerInfraRepository - findAllCustomers");
-        return  custerList;
+        List<Customer>  customerList =  customerMongoSpringRepsitory.findAll();
+        log.info("[Finish] CustomerInfraRepository - findAllCustomers");
+        return  customerList;
     }
 
     @Override
     public void deleteByIdCostumer(UUID idCustomer) {
         log.info("[Start] CustomerInfraRepository - deletedByIdCostumer");
         customerMongoSpringRepsitory.deleteById(idCustomer);
-        log.info("[Start] CustomerInfraRepository - deletedByIdCostumer");
+        log.info("[Finish] CustomerInfraRepository - deletedByIdCostumer");
     }
 
     @Override
     public Customer findByIdCustomer(UUID idCustomer) {
-
-        return null;
+        log.info("[Start] CustomerInfraRepository - findByIdCustomer");
+        var customer = customerMongoSpringRepsitory.findById(idCustomer).orElseThrow();
+        log.info("[Finish] CustomerInfraRepository - findByIdCustomer");
+        return customer;
     }
 }

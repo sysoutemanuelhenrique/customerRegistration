@@ -22,9 +22,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerResponse creat(CustomerRequest customerRequest) {
-
-
-
         log.info("[Star] - CustomerRepository - createdCustomer");
         Customer newCustomer = customerRepository.save(new Customer(customerRequest));
         log.info("[Finish] - CustomerRepository - createdCustomer");
